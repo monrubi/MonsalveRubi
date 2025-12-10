@@ -1,0 +1,46 @@
+{
+  "nav.home": "Inicio",
+  "nav.contact": "Contacto",
+
+  "hero.title": "Asesoría Legal Especializada en Derecho Bursátil y Financiero",
+  "hero.subtitle": "Protección jurídica, cumplimiento normativo y estrategias legales para instituciones financieras, fintechs y empresas.",
+  "hero.schedule": "Agendar consulta",
+  "hero.download": "Descargar CV",
+
+  "intro.text": "Más de 10 años de experiencia en derecho bursátil, financiero, cumplimiento regulatorio y consultoría para instituciones financieras y fintechs.",
+
+  "practice.title": "Áreas de Práctica",
+  "practice.area1.title": "Derecho Bursátil y Financiero",
+  "practice.area1.item1": "Estructuración de operaciones e instrumentos financieros.",
+  "practice.area1.item2": "Revisión y negociación de contratos.",
+  "practice.area1.item3": "Estrategias de operación y cumplimiento normativo ante CNBV y Banxico.",
+  "practice.area1.item4": "Marco contractual para fondos, private equity, acuerdos de confidencialidad (NDAs) y trade agreements.",
+
+  "practice.area2.title": "Regulación Financiera y Compliance",
+  "practice.area2.item1": "Implementación de sistemas AML/CFT.",
+  "practice.area2.item2": "Desarrollo de matrices y modelos de riesgo.",
+  "practice.area2.item3": "Auditorías normativas para entidades financieras.",
+  "practice.area2.item4": "Coordinación de auditorías internas y externas.",
+
+  "practice.area3.title": "Consultoría Legal para Fintechs",
+  "practice.area3.item1": "Estrategias legales para productos financieros innovadores.",
+  "practice.area3.item2": "Acompañamiento en fusiones y adquisiciones (M&A).",
+  "practice.area3.item3": "Estructuración corporativa y fiscal.",
+  "practice.area3.item4": "Privacidad de datos, protección de información y documentación migratoria.",
+
+  "practice.area4.title": "Litigio Administrativo, Fiscal y Corporativo",
+  "practice.area4.item1": "Defensa ante autoridades administrativas.",
+  "practice.area4.item2": "Elaboración de escritos, recursos y seguimiento de expedientes.",
+  "practice.area4.item3": "Asistencia en procedimientos fiscales y corporativos.",
+
+  "contact.title": "Contacto",
+  "contact.form.name": "Nombre completo",
+  "contact.form.email": "Correo electrónico",
+  "contact.form.subject": "Asunto",
+  "contact.form.message": "Mensaje",
+  "contact.form.submit": "Enviar mensaje",
+  "contact.info.title": "Información de contacto",
+  "contact.info.email": "Email",
+  "contact.info.phone": "Teléfono",
+  "contact.info.availability": "Estoy disponible para consultas y reuniones. No dude en contactarme para discutir sus necesidades legales en materia financiera y bursátil."
+}

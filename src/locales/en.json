@@ -1,0 +1,46 @@
+{
+  "nav.home": "Home",
+  "nav.contact": "Contact",
+
+  "hero.title": "Specialized Legal Advisory in Securities and Financial Law",
+  "hero.subtitle": "Legal protection, regulatory compliance, and legal strategies for financial institutions, fintechs, and corporations.",
+  "hero.schedule": "Schedule Consultation",
+  "hero.download": "Download CV",
+
+  "intro.text": "Over 10 years of experience in securities law, finance, regulatory compliance, and consulting for financial institutions and fintechs.",
+
+  "practice.title": "Practice Areas",
+  "practice.area1.title": "Securities and Financial Law",
+  "practice.area1.item1": "Structuring of operations and financial instruments.",
+  "practice.area1.item2": "Contract review and negotiation.",
+  "practice.area1.item3": "Operational strategies and regulatory compliance with CNBV and Banxico.",
+  "practice.area1.item4": "Contractual framework for funds, private equity, non-disclosure agreements (NDAs), and trade agreements.",
+
+  "practice.area2.title": "Financial Regulation and Compliance",
+  "practice.area2.item1": "Implementation of AML/CFT systems.",
+  "practice.area2.item2": "Development of risk matrices and models.",
+  "practice.area2.item3": "Regulatory audits for financial entities.",
+  "practice.area2.item4": "Coordination of internal and external audits.",
+
+  "practice.area3.title": "Legal Consulting for Fintechs",
+  "practice.area3.item1": "Legal strategies for innovative financial products.",
+  "practice.area3.item2": "Support in mergers and acquisitions (M&A).",
+  "practice.area3.item3": "Corporate and tax structuring.",
+  "practice.area3.item4": "Data privacy, information protection, and immigration documentation.",
+
+  "practice.area4.title": "Administrative, Tax, and Corporate Litigation",
+  "practice.area4.item1": "Defense before administrative authorities.",
+  "practice.area4.item2": "Drafting of briefs, appeals, and case tracking.",
+  "practice.area4.item3": "Assistance in tax and corporate proceedings.",
+
+  "contact.title": "Contact",
+  "contact.form.name": "Full name",
+  "contact.form.email": "Email address",
+  "contact.form.subject": "Subject",
+  "contact.form.message": "Message",
+  "contact.form.submit": "Send message",
+  "contact.info.title": "Contact Information",
+  "contact.info.email": "Email",
+  "contact.info.phone": "Phone",
+  "contact.info.availability": "I am available for consultations and meetings. Please feel free to contact me to discuss your legal needs in financial and securities matters."
+}
