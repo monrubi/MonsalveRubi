@@ -1,0 +1,141 @@
+.contact {
+  padding: 6rem 0;
+  background: #ffffff;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #004d40;
+  margin-bottom: 0.75rem;
+}
+
+.contact-divider {
+  height: 4px;
+  width: 160px;
+  margin: 0 auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #4db6ac,
+    transparent
+  );
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #004d40;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 77, 64, 0.2);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #4db6ac;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background: #4db6ac;
+  color: #004d40;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #80cbc4;
+}
+
+.contact-info {
+  padding-left: 3rem;
+  border-left: 1px solid rgba(0, 77, 64, 0.1);
+}
+
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #004d40;
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-icon {
+  background: rgba(77, 182, 172, 0.1);
+  padding: 0.75rem;
+  border-radius: 50%;
+  color: #4db6ac;
+}
+
+.info-item small {
+  display: block;
+  color: #9d9d9c;
+  margin-bottom: 0.25rem;
+}
+
+.info-item a {
+  color: #004d40;
+  text-decoration: none;
+}
+
+.info-item a:hover {
+  color: #4db6ac;
+}
+
+.contact-note {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 77, 64, 0.1);
+  color: #9d9d9c;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    padding-left: 0;
+    border-left: none;
+  }
+}
