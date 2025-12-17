@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import { LanguageProvider } from "./context/LanguageContext";
+import './styles/colors.css';
+import './styles/typography.css';
+import './styles/contact.css';
 
 export default function App() {
   return (

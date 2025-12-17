@@ -1,0 +1,24 @@
+/* ---------------------------------------
+   GLOBAL COLOR SYSTEM
+   Legal Consulting Website
+---------------------------------------- */
+
+:root {
+  /* Brand colors */
+  --color-primary: #004d40;       /* Dark teal - headers, accents */
+  --color-primary-light: #4db6ac; /* Teal accent */
+  --color-primary-lighter: #80cbc4; /* Hover accent */
+
+  /* Neutral palette */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-muted: #575757;       /* Updated muted text */
+  --color-gray: #9d9d9c;        /* Secondary labels */
+  --color-border: rgba(0, 77, 64, 0.2); /* Soft border */
+  --color-border-light: rgba(0, 77, 64, 0.1); /* Info panel border */
+
+  /* Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9f9; /* optional secondary background */
+}
