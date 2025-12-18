@@ -1,6 +1,8 @@
 {
   "nav.home": "Inicio",
   "nav.contact": "Contacto",
+  
+  "header.jobDescription": "Abogado Financiero, Bancario y Bursátil",
 
   "hero.title": "Asesoría Legal Especializada en Derecho Bursátil y Financiero",
   "hero.subtitle": "Protección jurídica, cumplimiento normativo y estrategias legales para instituciones financieras, fintechs y empresas.",
@@ -34,6 +36,7 @@
   "practice.area4.item3": "Asistencia en procedimientos fiscales y corporativos.",
 
   "contact.title": "Contacto",
+  "contact.form.required": "Todos los campos son obligatorios",
   "contact.form.nameID": "nombre",
   "contact.form.name": "Nombre completo",
   "contact.form.emaiID": "correo",

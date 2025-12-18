@@ -6,19 +6,22 @@
 :root {
   /* Brand colors */
   --color-primary: #004d40;       /* Dark teal - headers, accents */
-  --color-primary-light: #4db6ac; /* Teal accent */
+  --color-primary-light:  #4db6ac; /* Teal accent */
   --color-primary-lighter: #80cbc4; /* Hover accent */
 
   /* Neutral palette */
   --color-white: #ffffff;
   --color-black: #000000;
-
-  --color-muted: #575757;       /* Updated muted text */
-  --color-gray: #9d9d9c;        /* Secondary labels */
+  --color-info: rgba(0, 77, 64, 0.7);
+  --color-muted: #7a7a7a;       /* Updated muted text */       /* Secondary labels */
   --color-border: rgba(0, 77, 64, 0.2); /* Soft border */
   --color-border-light: rgba(0, 77, 64, 0.1); /* Info panel border */
+
+  /* Warning/Error colors */
+  --color-warning: #ef6644;     /* Deep Orange */
 
   /* Backgrounds */
   --color-bg: #ffffff;
   --color-bg-alt: #f8f9f9; /* optional secondary background */
+  --color-bg-hover: #4db6ac;
 }

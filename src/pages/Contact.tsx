@@ -5,6 +5,26 @@ import "../styles/contact.css";
 import Title from "../components/Title";
 import ContactForm from "../components/Form";
 
+interface InfoItemProps {
+  icon: React.ComponentType;
+  label: string;
+  value: string;
+  href: string;
+}
+
+function InfoItem({ icon: Icon, label, value, href }: InfoItemProps) {
+  return (
+    <div className="info-item">
+      <span className="info-icon">
+        <Icon />
+      </span>
+      <div>
+        <small>{label}</small>
+        <a href={href}>{value}</a>
+      </div>
+    </div>
+  );
+}
 export default function Contact() {
   const { t } = useLanguage();
   return (
@@ -18,27 +38,19 @@ export default function Contact() {
             <div className="contact-info">
               <h3>{t("contact.info.title")}</h3>
 
-              <div className="info-item">
-                <span className="info-icon">
-                  <Mail />
-                </span>
-                <div>
-                  <small>{t("contact.info.email")}</small>
-                  <a href="mailto:rodrigo.monrubi@gmail.com">
-                    rodrigo.monrubi@gmail.com
-                  </a>
-                </div>
-              </div>
+              <InfoItem
+                icon={Mail}
+                label={t("contact.info.email")}
+                value="rodrigo.monrubi@gmail.com"
+                href="mailto:rodrigo.monrubi@gmail.com"
+              />
 
-              <div className="info-item">
-                <span className="info-icon">
-                  <Phone />
-                </span>
-                <div>
-                  <small>{t("contact.info.phone")}</small>
-                  <a href="tel:+525519004608">(+52) 55 1900 4608</a>
-                </div>
-              </div>
+              <InfoItem
+                icon={Phone}
+                label={t("contact.info.phone")}
+                value="(+52) 55 1900 4608"
+                href="tel:+525519004608"
+              />
 
               <p className="contact-note">{t("contact.info.availability")}</p>
             </div>

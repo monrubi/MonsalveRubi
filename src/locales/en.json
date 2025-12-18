@@ -2,6 +2,8 @@
   "nav.home": "Home",
   "nav.contact": "Contact",
 
+  "header.jobDescription": "Banking, Finance & Securities Lawyer",
+
   "hero.title": "Specialized Legal Advisory in Securities and Financial Law",
   "hero.subtitle": "Legal protection, regulatory compliance, and legal strategies for financial institutions, fintechs, and corporations.",
   "hero.schedule": "Schedule Consultation",
@@ -34,6 +36,7 @@
   "practice.area4.item3": "Assistance in tax and corporate proceedings.",
 
   "contact.title": "Contact",
+  "contact.form.required": "All fields are required",
   "contact.form.nameID": "name",
   "contact.form.name": "Full name",
   "contact.form.emaiID": "email",
