@@ -17,10 +17,24 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const translations = { en, es };
 
-  const t = (key: string): string => {
-    const currentTranslations = translations[language];
-    return (currentTranslations[key as keyof typeof currentTranslations] || key) as string;
-  };
+const t = (key: string): string => {
+  const segments = key.split(".");
+  let current: unknown = translations[language];
+
+  for (const segment of segments) {
+    if (
+      current &&
+      typeof current === "object" &&
+      segment in current
+    ) {
+      current = (current as Record<string, unknown>)[segment];
+    } else {
+      return key; // fallback for missing keys
+    }
+  }
+
+  return typeof current === "string" ? current : key;
+};
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>

@@ -1,51 +1,100 @@
 {
-  "nav.home": "Home",
-  "nav.contact": "Contact",
+  "nav": {
+    "home": "Home",
+    "contact": "Contact"
+  },
 
-  "header.jobDescription": "Banking, Finance & Securities Lawyer",
+  "header": {
+    "jobDescription": "Banking, Finance & Capital Markets Lawyer"
+  },
 
-  "hero.title": "Specialized Legal Advisory in Securities and Financial Law",
-  "hero.subtitle": "Legal protection, regulatory compliance, and legal strategies for financial institutions, fintechs, and corporations.",
-  "hero.schedule": "Schedule Consultation",
-  "hero.download": "Download CV",
+  "hero": {
+    "title": "Specialized Legal Advisory in Securities and Financial Law",
+    "subtitle": "Legal protection, regulatory compliance, and strategic legal guidance for financial institutions, fintechs, and corporations.",
+    "schedule": "Schedule Consultation",
+    "download": "Download CV"
+  },
 
-  "intro.text": "Over 10 years of experience in securities law, finance, regulatory compliance, and consulting for financial institutions and fintechs.",
+  "intro": {
+    "text": "Over 10 years of experience in securities law, financial regulation, compliance, and consulting for financial institutions and fintech companies."
+  },
 
-  "practice.title": "Practice Areas",
-  "practice.area1.title": "Securities and Financial Law",
-  "practice.area1.item1": "Structuring of operations and financial instruments.",
-  "practice.area1.item2": "Contract review and negotiation.",
-  "practice.area1.item3": "Operational strategies and regulatory compliance with CNBV and Banxico.",
-  "practice.area1.item4": "Contractual framework for funds, private equity, non-disclosure agreements (NDAs), and trade agreements.",
+  "practice": {
+    "title": "Practice Areas",
 
-  "practice.area2.title": "Financial Regulation and Compliance",
-  "practice.area2.item1": "Implementation of AML/CFT systems.",
-  "practice.area2.item2": "Development of risk matrices and models.",
-  "practice.area2.item3": "Regulatory audits for financial entities.",
-  "practice.area2.item4": "Coordination of internal and external audits.",
+    "area1": {
+      "title": "Securities and Financial Law",
+      "items": [
+        "Structuring of financial operations and instruments.",
+        "Contract review and negotiation.",
+        "Operational strategies and regulatory compliance before CNBV and Banxico.",
+        "Contractual frameworks for funds, private equity, non-disclosure agreements (NDAs), and trade agreements."
+      ]
+    },
 
-  "practice.area3.title": "Legal Consulting for Fintechs",
-  "practice.area3.item1": "Legal strategies for innovative financial products.",
-  "practice.area3.item2": "Support in mergers and acquisitions (M&A).",
-  "practice.area3.item3": "Corporate and tax structuring.",
-  "practice.area3.item4": "Data privacy, information protection, and immigration documentation.",
+    "area2": {
+      "title": "Financial Regulation and Compliance",
+      "items": [
+        "Implementation of AML/CFT compliance systems.",
+        "Development of risk matrices and models.",
+        "Regulatory audits for financial entities.",
+        "Coordination of internal and external audits."
+      ]
+    },
 
-  "practice.area4.title": "Administrative, Tax, and Corporate Litigation",
-  "practice.area4.item1": "Defense before administrative authorities.",
-  "practice.area4.item2": "Drafting of briefs, appeals, and case tracking.",
-  "practice.area4.item3": "Assistance in tax and corporate proceedings.",
+    "area3": {
+      "title": "Legal Consulting for Fintechs",
+      "items": [
+        "Legal strategies for innovative financial products.",
+        "Support in mergers and acquisitions (M&A).",
+        "Corporate and tax structuring.",
+        "Data privacy, information protection, and immigration documentation."
+      ]
+    },
 
-  "contact.title": "Contact",
-  "contact.form.required": "All fields are required",
-  "contact.form.nameID": "name",
-  "contact.form.name": "Full name",
-  "contact.form.emaiID": "email",
-  "contact.form.email": "Email address",
-  "contact.form.subject": "Subject",
-  "contact.form.message": "Message",
-  "contact.form.submit": "Send message",
-  "contact.info.title": "Contact Information",
-  "contact.info.email": "Email",
-  "contact.info.phone": "Phone",
-  "contact.info.availability": "I am available for consultations and meetings. Please feel free to contact me to discuss your legal needs in financial and securities matters."
+    "area4": {
+      "title": "Administrative, Tax, and Corporate Litigation",
+      "items": [
+        "Defense before administrative authorities.",
+        "Drafting of briefs, appeals, and case tracking.",
+        "Assistance in tax and corporate proceedings."
+      ]
+    }
+  },
+
+  "contact": {
+    "title": "Contact",
+
+    "form": {
+      "required": "All fields are required",
+
+      "nameID": "name",
+      "name": "Full name",
+
+      "emailID": "email",
+      "email": "Email address",
+
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send message",
+
+      "error": {
+        "title": "Message could not be sent",
+        "message": "Please review the information and try again."
+      }
+    },
+
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "availability": "I am available for consultations and meetings. Please feel free to contact me to discuss your legal needs in financial and securities matters."
+    }
+  },
+
+  "footer": {
+    "title": "Contact",
+    "rights": "All rights reserved."
+  }
 }
+
