@@ -4,7 +4,9 @@
 
   /* Containers */
   --container-sm: 30rem;
-  --container-lg: 75rem;
+  --container-md: 48rem;
+  --container-lg: 64rem;
+  --container-xl: 75rem;
 
   /* Component sizes */
   --size-logo-icon: 2.2rem;
@@ -32,6 +34,10 @@
   --space-10: calc(var(--spacing) * 10); /* 5rem */
   --space-12: calc(var(--spacing) * 12); /* 6rem */
 
+  /* Accents */
+  --size-accent-line: 4rem;
+  --size-accent-line-thickness: 0.125rem;
+
   /* Blur */
   --blur-sm: 6px;
 
@@ -45,3 +51,4 @@
     --spacing: 0.375rem; /* 6px on mobile */
   }
 }
+

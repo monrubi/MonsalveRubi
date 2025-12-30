@@ -1,6 +1,6 @@
 import { Mail } from "lucide-react";
-import WhatsAppIcon from "../assets/socialMedia/whatsapp-white.svg";
-import LinkedInIcon from "../assets/socialMedia/linkedin-white.svg";
+import WhatsAppIcon from "../assets/socialMedia/whatsapp.svg?react";
+import LinkedInIcon from "../assets/socialMedia/linkedin.svg?react";
 import { useLanguage } from "../context/LanguageContext";
 import { useLocation } from "react-router-dom";
 import { CONTACT, NAME } from "../constants/constants";
@@ -20,11 +20,7 @@ function FooterLink({ icon: Icon, href, label }: FooterLinkProps) {
       rel="noopener noreferrer"
       className="footer-link footer-link-base"
     >
-      {typeof Icon === "string" ? (
-          <img src={Icon} alt={label} className="footer-link-icon" />
-        ) : (
-          <Icon />
-        )}
+      <Icon className="footer-link-icon" />
       <span>{label}</span>
     </a>
   );

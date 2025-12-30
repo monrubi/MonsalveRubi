@@ -17,6 +17,8 @@
   --text-3xl: 2rem;     /* 32px */
   --text-4xl: 2.5rem;   /* 40px */
   --text-5xl: 3.25rem;  /* 52px */
+  --text-6xl: 4rem;     /* 64px */
+  --text-7xl: 4.75rem;  /* 76px */
 
   /* Line heights */
   --leading-tight: 1.1;

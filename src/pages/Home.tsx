@@ -1,9 +1,11 @@
-import React from "react";
+import Hero from "../components/Hero";
+import IntroStrip from "../components/IntroStrip";
 
 export default function Home() {
   return (
-    <div>
-      <p>this is my home</p>
-    </div>
+    <>
+      <Hero />
+      <IntroStrip />
+    </>
   );
 }

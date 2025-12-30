@@ -4,13 +4,12 @@
 -------------------------------------------- */
 
 .app {
-  min-height: 100vh;                 /* min-h-screen */
-  background: var(--color-white);    /* bg-white */
-  display: flex;                     /* flex */
-  flex-direction: column;            /* flex-col */
+  min-height: 100vh;                 
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
 }
 
-/* Main content expands to fill space between Header and Footer */
 .app-main {
-  flex: 1 1 auto;                    /* flex-grow */
+  flex: 1 1 auto; /* flex-grow */                
 }

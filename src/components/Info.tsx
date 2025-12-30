@@ -1,6 +1,6 @@
 import { Mail, Phone } from "lucide-react";
-import WhatsAppIcon from "../assets/socialMedia/whatsapp-primary.svg";
-import LinkedInIcon from "../assets/socialMedia/linkedin-primary.svg";
+import WhatsAppIcon from "../assets/socialMedia/whatsapp.svg?react";
+import LinkedInIcon from "../assets/socialMedia/linkedin.svg?react";
 import { useLanguage } from "../context/LanguageContext";
 import { CONTACT } from "../constants/constants";
 import "../styles/contact.css";
@@ -16,11 +16,7 @@ function InfoItem({ icon: Icon, label, value, href }: InfoItemProps) {
   return (
     <div className="info-item">
       <span className="info-icon">
-        {typeof Icon === "string" ? (
-          <img src={Icon} alt={label} className="footer-link-icon" />
-        ) : (
-          <Icon />
-        )}
+          <Icon className="footer-link-icon"/>
       </span>
       <div className="info-text">
         <small>{label}</small>

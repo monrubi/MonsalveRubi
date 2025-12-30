@@ -2,7 +2,7 @@
   position: fixed;
   inset-inline: 0;
   inset-block-start: 0;
-  z-index: var(--z-header);
+  z-index: 50;
   background: var(--color-white);
   backdrop-filter: blur(var(--blur-sm));
   border-bottom: 1px solid var(--color-border-light);
@@ -10,7 +10,7 @@
 
 /* Container */
 .header-container {
-  max-width: var(--container-lg);
+  max-width: var(--container-xl);
   margin-inline: auto;
   padding-block: var(--space-2);
   padding-inline: var(--space-3);
