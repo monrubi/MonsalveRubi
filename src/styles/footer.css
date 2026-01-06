@@ -51,8 +51,8 @@
 }
 
 .footer-link-icon {
-  width: var(--size-icon-md);
-  height: var(--size-icon-md);
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
   flex-shrink: 0;
   color: currentColor;
   transition: color var(--motion-fast) ease;

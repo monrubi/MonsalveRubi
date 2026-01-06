@@ -149,7 +149,7 @@ html {
   margin-bottom: var(--space-3);
 }
 
-.info-icon {
+.info-icon-wrapper {
   width: var(--size-icon-lg);
   height: var(--size-icon-lg);
   background: var(--color-bg-light-soft);
@@ -159,6 +159,15 @@ html {
   justify-content: center;
   color: var(--color-primary-light);
   flex-shrink: 0;
+}
+
+.info-icon {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+  flex-shrink: 0;
+  color: currentColor;
+  stroke-width: 1.25;
+  transition: color var(--motion-fast) ease;
 }
 
 .info-text {

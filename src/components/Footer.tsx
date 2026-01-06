@@ -31,6 +31,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const location = useLocation();
   const isContactPage = location.pathname === "/contact";
+  const message = encodeURIComponent(t("hero.whatsappMessage"));
 
   return (
     <footer className="footer">
@@ -47,7 +48,7 @@ export default function Footer() {
                 />
                 <FooterLink
                   icon={WhatsAppIcon}
-                  href={CONTACT.whatsappHref}
+                  href={`${CONTACT.whatsappHref}?text=${message}`}
                   label={CONTACT.phone}
                 />
                 <FooterLink

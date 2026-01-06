@@ -62,6 +62,13 @@
   line-height: var(--leading-relaxed);
 }
 
+.hero-icon {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+  color: currentColor;
+  transition: color var(--motion-fast) ease;
+}
+
 /* Actions */
 
 .hero-actions {
@@ -91,12 +98,15 @@
   transition: all var(--motion-fast) ease;
 }
 
+
+
 /* Primary */
 
 .hero-btn-primary {
   background: var(--color-primary-light);
   color: var(--color-primary);
   border: none;
+  text-decoration: none;
 }
 
 .hero-btn-primary:hover {

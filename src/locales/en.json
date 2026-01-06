@@ -9,14 +9,26 @@
   },
 
   "hero": {
-    "title": "Specialized Legal Advisory in Securities and Financial Law",
+    "title": "Specialized Legal Services in Securities and Financial Law",
     "subtitle": "Legal protection, regulatory compliance, and strategic legal solutions for financial institutions, fintechs, and corporations.",
-    "schedule": "Schedule Consultation",
-    "download": "Download CV"
+    "schedule": "Contact",
+    "download": "Download CV",
+    "whatsappMessage": "Hello, I would like to inquire about legal advisory services."
   },
 
   "intro": {
     "text": "Over 10 years of legal advisory experience in complex regulatory environments."
+  },
+
+  "credentials": {
+    "certification": {
+      "title": "Official Certification",
+      "description": "Certified Compliance Officer in Anti-Money Laundering and Counter-Terrorism Financing by CNBV (2023)."
+    },
+    "english": {
+      "title": "Fluent English",
+      "description": "Experience working with U.S. companies. Bilingual legal services for foreign companies operating in Mexico."
+    }
   },
 
   "practice": {
@@ -97,4 +109,3 @@
     "rights": "All rights reserved."
   }
 }
-

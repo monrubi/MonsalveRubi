@@ -1,10 +1,12 @@
-import { Calendar, Download } from "lucide-react";
+import { Download } from "lucide-react";
+import WhatsAppIcon from "../assets/socialMedia/whatsapp.svg?react";
 import { useLanguage } from "../context/LanguageContext";
+import { CONTACT } from "../constants/constants";
 import "../styles/hero.css";
 
 export default function Hero() {
   const { t } = useLanguage();
-
+  const message = encodeURIComponent(t("hero.whatsappMessage"));
   return (
     <section className="hero">
       <div className="hero-bg">
@@ -23,13 +25,17 @@ export default function Hero() {
         <p className="hero-subtitle">{t("hero.subtitle")}</p>
 
         <div className="hero-actions">
-          <button className="hero-btn hero-btn-primary">
-            <Calendar className="icon icon-sm" />
+          <a
+            href={`${CONTACT.whatsappHref}?text=${message}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-btn hero-btn-primary"
+          >
+            <WhatsAppIcon className="hero-icon" />
             {t("hero.schedule")}
-          </button>
-
+          </a>
           <button className="hero-btn hero-btn-outline">
-            <Download className="icon icon-sm" />
+            <Download className="hero-icon" />
             {t("hero.download")}
           </button>
         </div>

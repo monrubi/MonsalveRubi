@@ -11,12 +11,24 @@
   "hero": {
     "title": "Asesoría Legal Especializada en Derecho Bursátil y Financiero",
     "subtitle": "Protección jurídica, cumplimiento normativo y estrategias legales para instituciones financieras, fintechs y empresas.",
-    "schedule": "Agendar consulta",
-    "download": "Descargar CV"
+    "schedule": "Contactar",
+    "download": "Descargar CV",
+    "whatsappMessage": "Hola, me gustaría recibir asesoría legal."
   },
 
   "intro": {
     "text": "Más de 10 años de asesoría legal en entornos regulatorios complejos."
+  },
+
+  "credentials": {
+    "certification": {
+      "title": "Certificación Oficial",
+      "description": "Oficial de Cumplimiento en Prevención de Lavado de Dinero y Financiamiento al Terrorismo ante la CNBV (2023)."
+    },
+    "english": {
+      "title": "Inglés Fluido",
+      "description": "Experiencia brindando servicios legales bilingües a empresas extranjeras con actividad en México."
+    }
   },
 
   "practice": {
@@ -97,4 +109,3 @@
     "rights": "Todos los derechos reservados."
   }
 }
-

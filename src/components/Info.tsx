@@ -15,12 +15,14 @@ interface InfoItemProps {
 function InfoItem({ icon: Icon, label, value, href }: InfoItemProps) {
   return (
     <div className="info-item">
-      <span className="info-icon">
-          <Icon className="footer-link-icon"/>
+      <span className="info-icon-wrapper">
+        <Icon className="info-icon" />
       </span>
       <div className="info-text">
         <small>{label}</small>
-        <a href={href}>{value}</a>
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          {value}
+        </a>
       </div>
     </div>
   );
@@ -28,6 +30,8 @@ function InfoItem({ icon: Icon, label, value, href }: InfoItemProps) {
 
 export default function Info() {
   const { t } = useLanguage();
+  const message = encodeURIComponent(t("hero.whatsappMessage"));
+
   return (
     <div className="contact-info">
       <h3>{t("contact.info.title")}</h3>
@@ -47,7 +51,7 @@ export default function Info() {
         icon={WhatsAppIcon}
         label="WhatsApp"
         value={CONTACT.phone}
-        href={CONTACT.whatsappHref}
+        href={`${CONTACT.whatsappHref}?text=${message}`}
       />
       <InfoItem
         icon={LinkedInIcon}
