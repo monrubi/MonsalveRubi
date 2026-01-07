@@ -45,7 +45,7 @@ export default function Info() {
         icon={Phone}
         label={t("contact.info.phone")}
         value={CONTACT.phone}
-        href={`tel:${CONTACT.phoneHref}`}
+        href={CONTACT.phoneHref}
       />
       <InfoItem
         icon={WhatsAppIcon}
