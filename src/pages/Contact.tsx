@@ -14,8 +14,8 @@ export default function Contact() {
         <div className="contact-container">
           <Title textContent={t("contact.title")} />
           <div className="contact-grid">
-            <ContactForm />
             <Info />
+            <ContactForm />
           </div>
         </div>
       </section>

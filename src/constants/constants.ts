@@ -4,7 +4,7 @@ export const CONTACT = {
   phoneHref: "tel:+525519004608",
   whatsappHref: "https://wa.me/525519004608",
   linkedin: "/monsalve-rubi",
-  linkedinHref: "https://www.linkedin.com/in/monsalve-rubi/"
+  linkedinHref: "https://www.linkedin.com/in/monsalve-rubi/",
 };
 
 export const NAME = "Rodrigo Monsalve Rubí";
@@ -17,8 +17,8 @@ export const PRACTICE_AREAS = [
       "practice.area1.items.0",
       "practice.area1.items.1",
       "practice.area1.items.2",
-      "practice.area1.items.3"
-    ]
+      "practice.area1.items.3",
+    ],
   },
   {
     icon: "shield",
@@ -27,8 +27,8 @@ export const PRACTICE_AREAS = [
       "practice.area2.items.0",
       "practice.area2.items.1",
       "practice.area2.items.2",
-      "practice.area2.items.3"
-    ]
+      "practice.area2.items.3",
+    ],
   },
   {
     icon: "smartphone",
@@ -37,8 +37,8 @@ export const PRACTICE_AREAS = [
       "practice.area3.items.0",
       "practice.area3.items.1",
       "practice.area3.items.2",
-      "practice.area3.items.3"
-    ]
+      "practice.area3.items.3",
+    ],
   },
   {
     icon: "scale",
@@ -46,7 +46,13 @@ export const PRACTICE_AREAS = [
     itemKeys: [
       "practice.area4.items.0",
       "practice.area4.items.1",
-      "practice.area4.items.2"
-    ]
-  }
+      "practice.area4.items.2",
+    ],
+  },
 ];
+
+export const ERROR_MESSAGES = {
+  missingFields: "Missing fields",
+  invalidEmail: "Invalid email",
+  serverError: "Server error",
+};

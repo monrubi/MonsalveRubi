@@ -89,10 +89,18 @@
       "subject": "Subject",
       "message": "Message",
       "submit": "Send message",
+      "sending": "Sending...",
 
       "error": {
         "title": "Message could not be sent",
-        "message": "Please review the information and try again."
+        "missingFields": "Please complete all fields and try again.",
+        "invalidEmail": "The email address provided is not valid.",
+        "serverError": "An error occurred while sending your message. Please try again later."
+      },
+
+      "success": {
+        "title": "Message sent",
+        "message": "Thank you for your message. I will contact you as soon as possible."
       }
     },
 

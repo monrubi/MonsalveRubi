@@ -1,2 +1,26 @@
+# Dependencies
 node_modules/
-package-lock.json
+
+# Build output
+dist/
+.vercel/
+
+# Vite
+.vite/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS / Editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+

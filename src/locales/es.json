@@ -89,10 +89,16 @@
       "subject": "Asunto",
       "message": "Mensaje",
       "submit": "Enviar mensaje",
+      "sending": "Enviando...",
 
       "error": {
         "title": "No se pudo enviar el mensaje",
         "message": "Por favor revise la información e intente nuevamente."
+      },
+
+      "success": {
+        "title": "Mensaje enviado",
+        "message": "Gracias por su mensaje. Me pondré en contacto con usted a la brevedad posible."
       }
     },
 

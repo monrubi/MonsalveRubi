@@ -26,7 +26,10 @@
   --color-hero-overlay: rgba(0, 77, 64, 0.75);
   --color-footer-text: rgba(255, 255, 255, 0.6);
   --color-footer-link: rgba(255, 255, 255, 0.8);
-  
+  --color-success: #16a34a;
+  --color-success-bg: #f0fdf4;
+  --color-success-title: #166534;
+  --color-success-text: #15803d;
 
   /* Warning/Error colors */
   --color-warning: #ef6644;     /* Deep Orange */

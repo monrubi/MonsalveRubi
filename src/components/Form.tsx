@@ -1,127 +1,100 @@
 import React from "react";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { useLanguage } from "../context/LanguageContext";
+import { TextInputField, TextAreaInputField } from "./InputField";
 import "../styles/contact.css";
+import Success from "./Success";
 
 interface FormProps {}
 
-interface InputFieldProps {
-  id: string;
+interface FormData {
   name: string;
-  formProperty: string;
-  value: string;
-  onChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  required?: boolean;
-  rows?: number;
+  email: string;
+  subject: string;
+  message: string;
+  company: string; // honeypot field
 }
 
-function TextInputField({
-  id,
-  name,
-  formProperty,
-  value,
-  onChange,
-  required = false,
-}: InputFieldProps) {
-  return (
-    <div className="form-group">
-      <label htmlFor={id}>{name}</label>
-      <input
-        id={id}
-        name={formProperty}
-        value={value}
-        onChange={onChange}
-        required={required}
-      />
-    </div>
-  );
-}
-
-function TextAreaInputField({
-  id,
-  name,
-  formProperty,
-  value,
-  onChange,
-  required = false,
-  rows = 6,
-}: InputFieldProps) {
-  return (
-    <div className="form-group">
-      <label htmlFor={id}>{name}</label>
-      <textarea
-        id={id}
-        name={formProperty}
-        rows={rows}
-        value={value}
-        onChange={onChange}
-        required={required}
-      />
-    </div>
-  );
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 export default function ContactForm({}: FormProps) {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [showError, setShowError] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
+    company: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({
+    name: false,
+    email: false,
+    subject: false,
+    message: false
+  });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
+    setErrorMessage("");
     setSuccess(false);
 
-    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+    //validate data
+    const errors = {
+      name: !formData.name.trim(),
+      email: !formData.email.trim(),
+      validEmail: !isValidEmail(formData.email),
+      subject: !formData.subject.trim(),
+      message: !formData.message.trim()
+    };
+    
+    setFieldErrors(errors);
+
+    if (errors.name || errors.email || errors.subject || errors.message ) {
       setShowError(true);
-      // Scroll to top to show error message
+      setLoading(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    
+
     setShowError(false);
-    console.log('Form submitted:', formData);
 
-    try {
-      // Initialize Emailjs (only needed once, ideally in main.tsx or App.tsx)
-      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your Emailjs public key
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      company: formData.company, // honeypot
+      language: language,
+    };
 
-      await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your service ID
-        "YOUR_TEMPLATE_ID", // Replace with your template ID
-        {
-          to_email: "rodrigo.monrubi@gmail.com", // Recipient email
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        }
-      );
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
-      setSuccess(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      console.log("Email sent successfully");
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "An error occurred while sending email"
-      );
-      console.error("Error sending email:", err);
-    } finally {
-      setLoading(false);
+    const data = await res.json();
+    setLoading(false);
+    if (!data.ok) {
+      console.log("Error sending message:", data.error);
+      return;
     }
+
+    setSuccess(true);
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      company: "",
+    });
   };
 
   const handleChange = (
@@ -129,23 +102,42 @@ export default function ContactForm({}: FormProps) {
   ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
-    // Hide error when user starts typing
+    setSuccess(false);
+    // Clear error for this specific field when user starts typing
+    if (fieldErrors[e.target.name as keyof typeof fieldErrors]) {
+      setFieldErrors({
+        ...fieldErrors,
+        [e.target.name as keyof typeof fieldErrors]: false
+      });
+    }
+    // Hide general error when user starts typing
     if (showError) {
       setShowError(false);
     }
   };
 
-
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      {success && (
+        <Success title={t("contact.form.success.title")} message={t("contact.form.success.message")} />
+      )}
       <div className="form-required-note">
         <p className="form-required-text">
           <span className="required-asterisk">*</span>
           {t("contact.form.required")}
         </p>
       </div>
+      <input
+        type="text"
+        name="company"
+        value={formData.company}
+        onChange={handleChange}
+        style={{ display: "none" }}
+        tabIndex={-1}
+        autoComplete="off"
+      />
       <TextInputField
         id={t("contact.form.nameID")}
         name={t("contact.form.name")}
@@ -178,24 +170,16 @@ export default function ContactForm({}: FormProps) {
         onChange={handleChange}
         required
       />
-      {error && (
+      {errorMessage && (
         <div
           className="form-error"
           style={{ color: "red", marginTop: "0.5rem" }}
         >
-          {error}
-        </div>
-      )}
-      {success && (
-        <div
-          className="form-success"
-          style={{ color: "green", marginTop: "0.5rem" }}
-        >
-          Email sent successfully!
+          {errorMessage}
         </div>
       )}
       <button type="submit" className="submit-button" disabled={loading}>
-        {loading ? "Sending..." : t("contact.form.submit")}
+        {loading ? t("contact.form.sending") : t("contact.form.submit")}
       </button>
     </form>
   );
