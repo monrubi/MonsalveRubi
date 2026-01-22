@@ -1,11 +1,19 @@
 import { Download } from "lucide-react";
-import WhatsAppIcon from "../assets/socialMedia/whatsapp.svg?react";
-import { useLanguage } from "../context/LanguageContext";
-import { CONTACT } from "../constants/constants";
-import "../styles/hero.css";
+
+import WhatsAppIcon from "@/assets/socialMedia/whatsapp.svg?react";
+import { useLanguage } from "@/context/LanguageContext";
+import { CONTACT } from "@/constants/constants";
+
+import "@/styles/hero.css";
+
+function getCvUrl(language: "es" | "en") {
+  return language === "es"
+    ? "/cv/RodrigoMonsalve_cv_esp.pdf"
+    : "/cv/RodrigoMonsalve_cv_eng.pdf";
+}
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const message = encodeURIComponent(t("hero.whatsappMessage"));
   return (
     <section className="hero">
@@ -34,10 +42,14 @@ export default function Hero() {
             <WhatsAppIcon className="hero-icon" />
             {t("hero.schedule")}
           </a>
-          <button className="hero-btn hero-btn-outline">
+          <a
+            href={getCvUrl(language)}
+            download
+            className="hero-btn hero-btn-outline"
+          >
             <Download className="hero-icon" />
             {t("hero.download")}
-          </button>
+          </a>
         </div>
       </div>
     </section>

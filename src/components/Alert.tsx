@@ -1,4 +1,5 @@
 import { CheckCircle, AlertCircle } from "lucide-react";
+
 import "../styles/alert.css";
 
 type AlertVariant = "success" | "error";

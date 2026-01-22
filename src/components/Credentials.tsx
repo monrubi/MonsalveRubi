@@ -1,6 +1,8 @@
 import { Award, Globe2 } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
-import "../styles/credentials.css"
+
+import { useLanguage } from "@/context/LanguageContext";
+
+import "@/styles/credentials.css";
 
 export default function Credentials() {
   const { t } = useLanguage();

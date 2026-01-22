@@ -1,10 +1,12 @@
 import { Mail } from "lucide-react";
-import WhatsAppIcon from "../assets/socialMedia/whatsapp.svg?react";
-import LinkedInIcon from "../assets/socialMedia/linkedin.svg?react";
-import { useLanguage } from "../context/LanguageContext";
 import { useLocation } from "react-router-dom";
-import { CONTACT, NAME } from "../constants/constants";
-import "../styles/footer.css";
+
+import WhatsAppIcon from "@/assets/socialMedia/whatsapp.svg?react";
+import LinkedInIcon from "@/assets/socialMedia/linkedin.svg?react";
+import { useLanguage } from "@/context/LanguageContext";
+import { CONTACT, NAME } from "@/constants/constants";
+
+import "@/styles/footer.css";
 
 interface FooterLinkProps {
   icon: React.ComponentType<any> | string;

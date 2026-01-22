@@ -1,4 +1,4 @@
-import { ContactErrorCode } from "../shared/errors";
+import { ContactErrorCode } from "@/shared/errors";
 
 export const CONTACT = {
   email: "rodrigo.monrubi@gmail.com",

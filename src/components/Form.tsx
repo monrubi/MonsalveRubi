@@ -1,13 +1,12 @@
-import React from "react";
-import { useState } from "react";
-import { useLanguage } from "../context/LanguageContext";
-import { TextInputField, TextAreaInputField } from "./InputField";
-import "../styles/contact.css";
-import Alert from "./Alert";
-import { isValidEmail } from "../shared/validation";
-import { ERROR_TO_KEY } from "../constants/constants";
+import React, { useState, useCallback } from "react";
 
-interface FormProps {}
+import { useLanguage } from "@/context/LanguageContext";
+import { isValidEmail } from "@/shared/validation";
+import { ERROR_TO_KEY } from "@/constants/constants";
+import { TextInputField, TextAreaInputField } from "./InputField";
+import Alert from "./Alert";
+
+import "@/styles/contact.css";
 
 interface FormData {
   name: string;
@@ -17,181 +16,237 @@ interface FormData {
   company: string; // honeypot field
 }
 
-export default function ContactForm({}: FormProps) {
+interface FormState {
+  data: FormData;
+  loading: boolean;
+  error: string | null;
+  success: boolean;
+  fieldErrors: Record<string, boolean>;
+}
+
+const INITIAL_FORM_DATA: FormData = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+  company: "",
+};
+
+const INITIAL_FORM_STATE: FormState = {
+  data: INITIAL_FORM_DATA,
+  loading: false,
+  error: null,
+  success: false,
+  fieldErrors: { name: false, email: false, subject: false, message: false },
+};
+
+interface ValidationErrors {
+  name: boolean;
+  email: boolean;
+  subject: boolean;
+  message: boolean;
+  validEmail: boolean;
+}
+
+export default function ContactForm() {
   const { language, t } = useLanguage();
-  const [showError, setShowError] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    company: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const [showSuccess, setSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("defaultError");
-  const [fieldErrors, setFieldErrors] = useState({
-    name: false,
-    email: false,
-    subject: false,
-    message: false,
-  });
+  const [state, setState] = useState<FormState>(INITIAL_FORM_STATE);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccess(false);
-    setShowError(false);
-
-    //validate data
-    const errors = {
-      name: !formData.name.trim(),
-      email: !formData.email.trim(),
-      validEmail: !isValidEmail(formData.email),
-      subject: !formData.subject.trim(),
-      message: !formData.message.trim(),
+  const validateForm = (data: FormData): { errors: ValidationErrors; isValid: boolean } => {
+    const errors: ValidationErrors = {
+      name: !data.name.trim(),
+      email: !data.email.trim(),
+      subject: !data.subject.trim(),
+      message: !data.message.trim(),
+      validEmail: !isValidEmail(data.email),
     };
 
-    setFieldErrors(errors);
+    const isValid = !Object.values(errors).some(Boolean);
+    return { errors, isValid };
+  };
 
-    if (Object.values(errors).some(Boolean)) {
-      switch (true) {
-        case errors.name:
-        case errors.subject:
-        case errors.message:
-        case errors.email:
-          setErrorMessage("missingFields");
-          break;
-        case errors.validEmail:
-          setErrorMessage("invalidEmail");
-          break;
-        default:
-          setErrorMessage("defaultError");
+  const getErrorMessage = (errors: ValidationErrors): string => {
+    if (errors.name || errors.email || errors.subject || errors.message) {
+      return "missingFields";
+    }
+    if (errors.validEmail) {
+      return "invalidEmail";
+    }
+    return "defaultError";
+  };
+
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+
+      setState((prev) => ({
+        ...prev,
+        loading: true,
+        error: null,
+        success: false,
+      }));
+
+      const { errors, isValid } = validateForm(state.data);
+
+      if (!isValid) {
+        setState((prev) => ({
+          ...prev,
+          loading: false,
+          error: getErrorMessage(errors),
+          fieldErrors: {
+            name: errors.name,
+            email: errors.email || errors.validEmail,
+            subject: errors.subject,
+            message: errors.message,
+          },
+        }));
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
       }
-      setShowError(true);
-      setLoading(false);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
 
-    setShowError(false);
+      try {
+        const payload = {
+          name: state.data.name.trim(),
+          email: state.data.email.trim(),
+          subject: state.data.subject.trim(),
+          message: state.data.message.trim(),
+          company: state.data.company,
+          language,
+        };
 
-    const payload = {
-      name: formData.name,
-      email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-      company: formData.company, // honeypot
-      language: language,
-    };
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+        const result = await response.json();
 
-    const data = await res.json();
-    setLoading(false);
-    if (!data.ok) {
-      setErrorMessage(ERROR_TO_KEY[data.error.code as keyof typeof ERROR_TO_KEY] ?? "defaultError");
-      console.log("Error sending message:", data.error);
-      return;
-    }
+        if (!response.ok || !result.ok) {
+          const errorCode = result.error?.code || "SERVER_ERROR";
+          const errorKey = ERROR_TO_KEY[errorCode as keyof typeof ERROR_TO_KEY] ?? "defaultError";
 
-    setSuccess(true);
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-      company: "",
-    });
-  };
+          setState((prev) => ({
+            ...prev,
+            loading: false,
+            error: errorKey,
+          }));
+          return;
+        }
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-    setSuccess(false);
-    // Clear error for this specific field when user starts typing
-    if (fieldErrors[e.target.name as keyof typeof fieldErrors]) {
-      setFieldErrors({
-        ...fieldErrors,
-        [e.target.name as keyof typeof fieldErrors]: false,
-      });
-    }
-    // Hide general error when user starts typing
-    if (showError) {
-      setShowError(false);
-    }
-  };
+        setState((prev) => ({
+          ...prev,
+          loading: false,
+          success: true,
+          data: INITIAL_FORM_DATA,
+          fieldErrors: INITIAL_FORM_STATE.fieldErrors,
+        }));
+
+        // Auto-dismiss success message after 5 seconds
+        setTimeout(() => {
+          setState((prev) => ({ ...prev, success: false }));
+        }, 5000);
+      } catch (error) {
+        console.error("Form submission error:", error);
+        setState((prev) => ({
+          ...prev,
+          loading: false,
+          error: "defaultError",
+        }));
+      }
+    },
+    [state.data, language],
+  );
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target;
+
+      setState((prev) => ({
+        ...prev,
+        data: { ...prev.data, [name]: value },
+        success: false,
+        error: prev.fieldErrors[name as keyof typeof prev.fieldErrors] ? null : prev.error,
+        fieldErrors: {
+          ...prev.fieldErrors,
+          [name as keyof typeof prev.fieldErrors]: false,
+        },
+      }));
+    },
+    [],
+  );
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-{showSuccess && (
-  <Alert
-    variant="success"
-    title={t("contact.form.success.title")}
-    message={t("contact.form.success.message")}
-  />
-)}
+      {state.success && (
+        <Alert
+          variant="success"
+          title={t("contact.form.success.title")}
+          message={t("contact.form.success.message")}
+        />
+      )}
 
-{showError && (
-  <Alert
-    variant="error"
-    title={t("contact.form.error.title")}
-    message={t(`contact.form.error.${errorMessage}`)}
-  />
-)}
+      {state.error && (
+        <Alert
+          variant="error"
+          title={t("contact.form.error.title")}
+          message={t(`contact.form.error.${state.error}`)}
+        />
+      )}
+
       <div className="form-required-note">
         <p className="form-required-text">
           <span className="required-asterisk">*</span>
           {t("contact.form.required")}
         </p>
       </div>
+
+      {/* Honeypot field */}
       <input
         type="text"
         name="company"
-        value={formData.company}
+        value={state.data.company}
         onChange={handleChange}
         style={{ display: "none" }}
         tabIndex={-1}
         autoComplete="off"
+        aria-hidden="true"
       />
+
       <TextInputField
         id={t("contact.form.nameID")}
         name={t("contact.form.name")}
         formProperty="name"
-        value={formData.name}
+        value={state.data.name}
         onChange={handleChange}
       />
+
       <TextInputField
         id={t("contact.form.emailID")}
         name={t("contact.form.email")}
         formProperty="email"
-        value={formData.email}
+        value={state.data.email}
         onChange={handleChange}
       />
+
       <TextInputField
         id={t("contact.form.subject")}
         name={t("contact.form.subject")}
         formProperty="subject"
-        value={formData.subject}
+        value={state.data.subject}
         onChange={handleChange}
       />
+
       <TextAreaInputField
         id={t("contact.form.message")}
         name={t("contact.form.message")}
         formProperty="message"
-        value={formData.message}
+        value={state.data.message}
         onChange={handleChange}
       />
-      <button type="submit" className="submit-button" disabled={loading}>
-        {loading ? t("contact.form.sending") : t("contact.form.submit")}
+
+      <button type="submit" className="submit-button" disabled={state.loading}>
+        {state.loading ? t("contact.form.sending") : t("contact.form.submit")}
       </button>
     </form>
   );

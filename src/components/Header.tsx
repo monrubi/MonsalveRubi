@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { Globe } from "lucide-react";
-import Logo from '../assets/logo.svg';
-import { useLanguage } from "../context/LanguageContext";
-import "../styles/header.css";
+
+import Logo from "@/assets/logo.svg";
+import { useLanguage } from "@/context/LanguageContext";
+
+import "@/styles/header.css";
 
 function Brand({ jobDescription }: { jobDescription: string }) {
   return (

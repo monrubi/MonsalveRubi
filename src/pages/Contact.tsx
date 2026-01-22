@@ -1,10 +1,10 @@
 import { Mail, Phone } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
-import "../styles/contact.css";
+import { useLanguage } from "@/context/LanguageContext";
+import "@/styles/contact.css";
 
-import Title from "../components/Title";
-import ContactForm from "../components/Form";
-import Info from "../components/Info";
+import Title from "@/components/Title";
+import ContactForm from "@/components/Form";
+import Info from "@/components/Info";
 
 export default function Contact() {
   const { t } = useLanguage();

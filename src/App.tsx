@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Header from "./components/Header";
-import Footer from "./components/Footer"
-import { LanguageProvider } from "./context/LanguageContext";
-import "./styles/index.css";
+import Home from "@/pages/Home";
+import Contact from "@/pages/Contact";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/context/LanguageContext";
+import "@/styles/index.css";
 
 export default function App() {
   return (

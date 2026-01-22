@@ -1,7 +1,9 @@
 import { TrendingUp, Shield, Smartphone, Scale } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
-import { PRACTICE_AREAS as areas} from "../constants/constants";
-import "../styles/practice-areas.css"
+
+import { useLanguage } from "@/context/LanguageContext";
+import { PRACTICE_AREAS as areas } from "@/constants/constants";
+
+import "@/styles/practice-areas.css";
 
 const ICON_MAP = {
   trendingUp: TrendingUp,

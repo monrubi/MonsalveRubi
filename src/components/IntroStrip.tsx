@@ -1,5 +1,6 @@
-import { useLanguage } from "../context/LanguageContext";
-import "../styles/intro-strip.css";
+import { useLanguage } from "@/context/LanguageContext";
+
+import "@/styles/intro-strip.css";
 
 export default function IntroStrip() {
   const { t } = useLanguage();

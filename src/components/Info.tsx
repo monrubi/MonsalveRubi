@@ -1,9 +1,11 @@
 import { Mail, Phone } from "lucide-react";
-import WhatsAppIcon from "../assets/socialMedia/whatsapp.svg?react";
-import LinkedInIcon from "../assets/socialMedia/linkedin.svg?react";
-import { useLanguage } from "../context/LanguageContext";
-import { CONTACT } from "../constants/constants";
-import "../styles/contact.css";
+
+import WhatsAppIcon from "@/assets/socialMedia/whatsapp.svg?react";
+import LinkedInIcon from "@/assets/socialMedia/linkedin.svg?react";
+import { useLanguage } from "@/context/LanguageContext";
+import { CONTACT } from "@/constants/constants";
+
+import "@/styles/contact.css";
 
 interface InfoItemProps {
   icon: React.ComponentType<any> | string;
