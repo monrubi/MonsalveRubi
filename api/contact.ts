@@ -1,6 +1,6 @@
 import { Resend } from "resend";
-import { isValidEmail } from "./_shared/validation.ts";
-import { ContactErrorCode } from "./_shared/errors.ts";
+import { isValidEmail } from "./shared/validation";
+import { ContactErrorCode } from "./shared/errors";
 
 type ContactPayload = {
   name: string;
