@@ -1,6 +1,4 @@
 import { Resend } from "resend";
-import { isValidEmail } from "./shared/validation";
-import { ContactErrorCode } from "./shared/errors";
 
 type ContactPayload = {
   name: string;
@@ -40,12 +38,23 @@ const EMAIL_LABELS = {
   },
 } as const;
 
+enum ContactErrorCode {
+  MISSING_FIELDS = "MISSING_FIELDS",
+  INVALID_EMAIL = "INVALID_EMAIL",
+  SERVER_ERROR = "SERVER_ERROR",
+  MISSING_ENV_VARS = "MISSING_ENV_VARS"
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 function isBlockedDomain(email: string): boolean {
   const domain = email.split("@")[1]?.toLowerCase();
   const blockedDomains = new Set(BLOCKED_DOMAINS);
   return domain ? blockedDomains.has(domain) : true;
+}
+
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 export default async function handler(req: any, res: any) {
