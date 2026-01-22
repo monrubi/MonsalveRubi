@@ -93,7 +93,9 @@
 
       "error": {
         "title": "No se pudo enviar el mensaje",
-        "message": "Por favor revise la información e intente nuevamente."
+        "missingFields": "Por favor complete todos los campos e intente nuevamente.",
+        "invalidEmail": "La dirección de correo electrónico proporcionada no es válida.",
+        "defaultError": "Ocurrió un error al enviar su mensaje. Por favor, inténtelo más tarde o haga clic en el correo electrónico bajo Información de contacto."
       },
 
       "success": {

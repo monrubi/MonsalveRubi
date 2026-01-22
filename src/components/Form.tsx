@@ -3,7 +3,9 @@ import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { TextInputField, TextAreaInputField } from "./InputField";
 import "../styles/contact.css";
-import Success from "./Success";
+import Alert from "./Alert";
+import { isValidEmail } from "../shared/validation";
+import { ERROR_TO_KEY } from "../constants/constants";
 
 interface FormProps {}
 
@@ -13,10 +15,6 @@ interface FormData {
   subject: string;
   message: string;
   company: string; // honeypot field
-}
-
-function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 export default function ContactForm({}: FormProps) {
@@ -30,20 +28,20 @@ export default function ContactForm({}: FormProps) {
     company: "",
   });
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [showSuccess, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("defaultError");
   const [fieldErrors, setFieldErrors] = useState({
     name: false,
     email: false,
     subject: false,
-    message: false
+    message: false,
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setErrorMessage("");
     setSuccess(false);
+    setShowError(false);
 
     //validate data
     const errors = {
@@ -51,15 +49,28 @@ export default function ContactForm({}: FormProps) {
       email: !formData.email.trim(),
       validEmail: !isValidEmail(formData.email),
       subject: !formData.subject.trim(),
-      message: !formData.message.trim()
+      message: !formData.message.trim(),
     };
-    
+
     setFieldErrors(errors);
 
-    if (errors.name || errors.email || errors.subject || errors.message ) {
+    if (Object.values(errors).some(Boolean)) {
+      switch (true) {
+        case errors.name:
+        case errors.subject:
+        case errors.message:
+        case errors.email:
+          setErrorMessage("missingFields");
+          break;
+        case errors.validEmail:
+          setErrorMessage("invalidEmail");
+          break;
+        default:
+          setErrorMessage("defaultError");
+      }
       setShowError(true);
       setLoading(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
@@ -83,6 +94,7 @@ export default function ContactForm({}: FormProps) {
     const data = await res.json();
     setLoading(false);
     if (!data.ok) {
+      setErrorMessage(ERROR_TO_KEY[data.error.code as keyof typeof ERROR_TO_KEY] ?? "defaultError");
       console.log("Error sending message:", data.error);
       return;
     }
@@ -98,7 +110,7 @@ export default function ContactForm({}: FormProps) {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({
       ...formData,
@@ -109,7 +121,7 @@ export default function ContactForm({}: FormProps) {
     if (fieldErrors[e.target.name as keyof typeof fieldErrors]) {
       setFieldErrors({
         ...fieldErrors,
-        [e.target.name as keyof typeof fieldErrors]: false
+        [e.target.name as keyof typeof fieldErrors]: false,
       });
     }
     // Hide general error when user starts typing
@@ -120,9 +132,21 @@ export default function ContactForm({}: FormProps) {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      {success && (
-        <Success title={t("contact.form.success.title")} message={t("contact.form.success.message")} />
-      )}
+{showSuccess && (
+  <Alert
+    variant="success"
+    title={t("contact.form.success.title")}
+    message={t("contact.form.success.message")}
+  />
+)}
+
+{showError && (
+  <Alert
+    variant="error"
+    title={t("contact.form.error.title")}
+    message={t(`contact.form.error.${errorMessage}`)}
+  />
+)}
       <div className="form-required-note">
         <p className="form-required-text">
           <span className="required-asterisk">*</span>
@@ -144,7 +168,6 @@ export default function ContactForm({}: FormProps) {
         formProperty="name"
         value={formData.name}
         onChange={handleChange}
-        required
       />
       <TextInputField
         id={t("contact.form.emailID")}
@@ -152,7 +175,6 @@ export default function ContactForm({}: FormProps) {
         formProperty="email"
         value={formData.email}
         onChange={handleChange}
-        required
       />
       <TextInputField
         id={t("contact.form.subject")}
@@ -160,7 +182,6 @@ export default function ContactForm({}: FormProps) {
         formProperty="subject"
         value={formData.subject}
         onChange={handleChange}
-        required
       />
       <TextAreaInputField
         id={t("contact.form.message")}
@@ -168,16 +189,7 @@ export default function ContactForm({}: FormProps) {
         formProperty="message"
         value={formData.message}
         onChange={handleChange}
-        required
       />
-      {errorMessage && (
-        <div
-          className="form-error"
-          style={{ color: "red", marginTop: "0.5rem" }}
-        >
-          {errorMessage}
-        </div>
-      )}
       <button type="submit" className="submit-button" disabled={loading}>
         {loading ? t("contact.form.sending") : t("contact.form.submit")}
       </button>

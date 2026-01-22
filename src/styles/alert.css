@@ -52,6 +52,24 @@
   color: var(--color-success-title);
 }
 
+/* Error variant (uses semantic tokens) */
+.alert-error {
+  background: var(--color-error-bg);
+  border-inline-start: 4px solid var(--color-error);
+  border-start-end-radius: var(--radius-sm);
+  border-end-end-radius: var(--radius-sm);
+
+  color: var(--color-error-text);
+}
+
+.alert-error .alert-icon {
+  color: var(--color-error);
+}
+
+.alert-error .alert-title {
+  color: var(--color-error-title);
+}
+
 /* Animation */
 .alert-animate {
   animation: alert-in var(--motion-fast) ease;

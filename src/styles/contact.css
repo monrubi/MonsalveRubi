@@ -182,7 +182,6 @@ html {
 
 .info-item a {
   color: var(--color-primary);
-  text-decoration: none;
 }
 
 .info-item a:hover {

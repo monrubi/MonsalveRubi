@@ -1,4 +1,6 @@
 import { Resend } from "resend";
+import { isValidEmail } from "../src/shared/validation.ts";
+import { ContactErrorCode } from "../src/shared/errors.ts";
 
 type ContactPayload = {
   name: string;
@@ -40,10 +42,6 @@ const EMAIL_LABELS = {
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
 function isBlockedDomain(email: string): boolean {
   const domain = email.split("@")[1]?.toLowerCase();
   const blockedDomains = new Set(BLOCKED_DOMAINS);
@@ -60,7 +58,7 @@ export default async function handler(req: any, res: any) {
       CONTACT_TO_EMAIL: !!process.env.CONTACT_TO_EMAIL,
       CONTACT_FROM_EMAIL: !!process.env.CONTACT_FROM_EMAIL,
     });
-    return res.status(500).json({ ok: false, error: "Missing env vars" });
+    return res.status(500).json({ ok: false, error: ContactErrorCode.MISSING_ENV_VARS });
   }
 
   try {
@@ -70,11 +68,11 @@ export default async function handler(req: any, res: any) {
     const { name, email, subject, message, language = "es" } = body;
 
     if (!name || !email || !subject || !message) {
-      return res.status(400).json({ ok: false, error: "Missing fields" });
+      return res.status(400).json({ ok: false, error: ContactErrorCode.MISSING_FIELDS });
     }
 
     if (!isValidEmail(email)) {
-      return res.status(400).json({ ok: false, error: "Invalid email" });
+      return res.status(400).json({ ok: false, error: ContactErrorCode.INVALID_EMAIL });
     }
 
     // Honeypot
@@ -111,6 +109,6 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({ ok: true });
   } catch (err) {
     console.error("CONTACT API ERROR:", err);
-    return res.status(500).json({ ok: false, code: "SERVER_ERROR" });
+    return res.status(500).json({ ok: false, error: ContactErrorCode.SERVER_ERROR });
   }
 }

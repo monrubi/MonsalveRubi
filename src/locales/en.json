@@ -95,7 +95,7 @@
         "title": "Message could not be sent",
         "missingFields": "Please complete all fields and try again.",
         "invalidEmail": "The email address provided is not valid.",
-        "serverError": "An error occurred while sending your message. Please try again later."
+        "defaultError": "An error occurred while sending your message. Please try again later or click on the mail under Contact Information."
       },
 
       "success": {

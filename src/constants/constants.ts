@@ -1,3 +1,5 @@
+import { ContactErrorCode } from "../shared/errors";
+
 export const CONTACT = {
   email: "rodrigo.monrubi@gmail.com",
   phone: "(+52) 55 1900 4608",
@@ -55,4 +57,11 @@ export const ERROR_MESSAGES = {
   missingFields: "Missing fields",
   invalidEmail: "Invalid email",
   serverError: "Server error",
+};
+
+export const ERROR_TO_KEY: Record<ContactErrorCode, string> = {
+  [ContactErrorCode.MISSING_FIELDS]: "missingFields",
+  [ContactErrorCode.INVALID_EMAIL]: "invalidEmail",
+  [ContactErrorCode.SERVER_ERROR]: "defaultError",
+  [ContactErrorCode.MISSING_ENV_VARS]: "defaultError",
 };
