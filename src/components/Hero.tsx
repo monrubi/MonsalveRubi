@@ -8,8 +8,8 @@ import "@/styles/hero.css";
 
 function getCvUrl(language: "es" | "en") {
   return language === "es"
-    ? "/cv/RodrigoMonsalve_cv_esp.pdf"
-    : "/cv/RodrigoMonsalve_cv_eng.pdf";
+    ? "/cv/Rodrigo_Monsalve_CV_ES.pdf"
+    : "/cv/Rodrigo_Monsalve_CV_EN.pdf";
 }
 
 export default function Hero() {
