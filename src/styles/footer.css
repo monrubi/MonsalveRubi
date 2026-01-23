@@ -1,0 +1,113 @@
+.footer {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.footer-container {
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-block: var(--space-4);
+  padding-inline: var(--space-3);
+}
+
+/* CONTACT BLOCK */
+
+.footer-content {
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+}
+
+.footer-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  text-align: center;
+  margin-bottom: var(--space-3);
+  margin-top: 0;
+  color: var(--color-footer-link);
+}
+
+.footer-link-base {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+
+  font-family: var(--font-sans);
+  text-decoration: none;
+
+  transition: color var(--motion-fast) ease;
+}
+
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer-link {
+  composese: footer-link-base;
+  font-size: var(--text-lg);
+  color: var(--color-footer-link);
+}
+
+.footer-link-icon {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+  flex-shrink: 0;
+  color: currentColor;
+  transition: color var(--motion-fast) ease;
+}
+
+.footer-link:hover {
+  color: var(--color-primary-light);
+}
+
+/* --------------------------------------------------
+   FOOTER INLINE CONTACT (Contact page variant)
+-------------------------------------------------- */
+
+.footer-inline {
+  margin-bottom: var(--space-3);
+}
+
+.footer-inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  column-gap: var(--space-4);
+  row-gap: var(--space-2);
+
+  font-size: var(--text-sm);
+}
+
+.footer-inline-link {  
+  composes: footer-link-base;
+  color: var(--color-footer-text);
+}
+
+.footer-inline-link:hover {
+  color: var(--color-primary-light);
+}
+
+
+/* COPYRIGHT */
+
+.footer-bottom {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-footer-text);
+}
+
+.footer-bottom-bordered {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-inverse);
+}
+
+.footer-rights {
+  margin: 0;
+  color: var(--color-footer-text);
+  font-size: var(--text-sm);
+}

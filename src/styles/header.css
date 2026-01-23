@@ -1,0 +1,140 @@
+.header {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-start: 0;
+  z-index: 50;
+  background: var(--color-white);
+  backdrop-filter: blur(var(--blur-sm));
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* Container */
+.header-container {
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+}
+
+/* Flex wrapper */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------
+   LOGO
+-------------------------------------------------- */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  text-decoration: none;
+}
+
+.logo-icon {
+  height: var(--size-logo-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon-svg {
+  color: var(--color-white);
+  height: 100%;
+}
+
+/* Text block */
+.logo-text {
+  display: none;
+}
+
+@media (min-width: 40rem) {
+  .logo-text {
+    display: block;
+  }
+}
+
+.logo-name {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-tight);
+}
+
+.logo-role {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------
+   NAVIGATION
+-------------------------------------------------- */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--motion-fast) ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: var(--weight-medium);
+}
+
+/* --------------------------------------------------
+   LANGUAGE TOGGLE
+-------------------------------------------------- */
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+
+  padding-block: var(--space-1);
+  padding-inline: var(--space-1-5);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+
+  border: 1px solid var(--color-border);
+  background: transparent;
+
+  cursor: pointer;
+  transition: all var(--motion-fast) ease;
+}
+
+.lang-toggle:hover {
+  border-color: var(--color-primary-light);
+  background: var(--color-bg-hover);
+}
+
+.lang-icon {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+  color: var(--color-primary);
+}
+
+.lang-label {
+  color: var(--color-primary);
+}
+

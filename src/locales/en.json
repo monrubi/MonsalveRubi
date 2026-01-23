@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Home",
+    "contact": "Contact"
+  },
+
+  "header": {
+    "jobDescription": "Banking, Finance & Capital Markets Lawyer"
+  },
+
+  "hero": {
+    "title": "Specialized Legal Services in Securities and Financial Law",
+    "subtitle": "Legal protection, regulatory compliance, and strategic legal solutions for financial institutions, fintechs, and corporations.",
+    "schedule": "Contact",
+    "download": "Download CV",
+    "whatsappMessage": "Hello, I would like to inquire about legal advisory services."
+  },
+
+  "intro": {
+    "text": "Over 10 years of legal advisory experience in complex regulatory environments."
+  },
+
+  "credentials": {
+    "certification": {
+      "title": "Official Certification",
+      "description": "Certified Compliance Officer in Anti-Money Laundering and Counter-Terrorism Financing by CNBV (2023)."
+    },
+    "english": {
+      "title": "Fluent English and Spanish",
+      "description": "Experience working with U.S. companies. Bilingual legal services for foreign companies operating in Mexico."
+    }
+  },
+
+  "practice": {
+    "title": "Practice Areas",
+
+    "area1": {
+      "title": "Securities and Financial Law",
+      "items": [
+        "Structuring of financial operations and instruments.",
+        "Contract review and negotiation.",
+        "Operational strategies and regulatory compliance before CNBV and Banxico.",
+        "Contractual frameworks for funds, private equity, non-disclosure agreements (NDAs), and trade agreements."
+      ]
+    },
+
+    "area2": {
+      "title": "Financial Regulation and Compliance",
+      "items": [
+        "Implementation of AML/CFT compliance systems.",
+        "Development of risk matrices and models.",
+        "Regulatory audits for financial entities.",
+        "Coordination of internal and external audits."
+      ]
+    },
+
+    "area3": {
+      "title": "Legal Consulting for Fintechs",
+      "items": [
+        "Legal strategies for innovative financial products.",
+        "Support in mergers and acquisitions (M&A).",
+        "Corporate and tax structuring.",
+        "Data privacy, information protection, and immigration documentation."
+      ]
+    },
+
+    "area4": {
+      "title": "Administrative, Tax, and Corporate Litigation",
+      "items": [
+        "Defense before administrative authorities.",
+        "Drafting of briefs, appeals, and case tracking.",
+        "Assistance in tax and corporate proceedings."
+      ]
+    }
+  },
+
+  "contact": {
+    "title": "Contact",
+
+    "form": {
+      "required": "All fields are required",
+
+      "nameID": "name",
+      "name": "Full name",
+
+      "emailID": "email",
+      "email": "Email address",
+
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send message",
+      "sending": "Sending...",
+
+      "error": {
+        "title": "Message could not be sent",
+        "missingFields": "Please complete all fields and try again.",
+        "invalidEmail": "The email address provided is not valid.",
+        "defaultError": "An error occurred while sending your message. Please try again later or click on the mail under Contact Information."
+      },
+
+      "success": {
+        "title": "Message sent",
+        "message": "Thank you for your message. I will contact you as soon as possible."
+      }
+    },
+
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "availability": "I am available for consultations and meetings. Please feel free to contact me to discuss your legal needs in financial and securities matters."
+    }
+  },
+
+  "footer": {
+    "title": "Contact",
+    "rights": "All rights reserved."
+  }
+}

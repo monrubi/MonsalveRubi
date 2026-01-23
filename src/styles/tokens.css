@@ -1,0 +1,60 @@
+:root {
+  /* Base spacing unit */
+  --spacing: 0.5rem; /* 8px */
+
+  /* Containers */
+  --container-sm: 30rem;
+  --container-md: 48rem;
+  --container-lg: 64rem;
+  --container-xl: 75rem;
+
+  /* Component sizes */
+  --size-logo-icon: 2.2rem;
+  --size-divider-height: 4px;
+  --size-divider-width: 10rem;
+  --size-icon-sm: 1.2rem;
+  --size-icon-md: 1.9rem;
+  --size-icon-lg: 2.8rem;
+  --size-bullet: 0.375rem;
+
+  /* Radius */
+  --radius-sm: 0.4rem;
+  --radius-md: 0.375rem;
+  --radius-full: 50%;
+
+  /* Base size scalers */
+  --space-0-5: calc(var(--spacing) * 0.5); /* 0.25rem */
+  --space-1: calc(var(--spacing) * 1);  /* 0.5rem */
+  --space-1-5: calc(var(--spacing) * 1.5); /* 0.75rem */
+  --space-2: calc(var(--spacing) * 2);  /* 1rem */
+  --space-3: calc(var(--spacing) * 3);  /* 1.5rem */
+  --space-4: calc(var(--spacing) * 4);  /* 2rem */
+  --space-5: calc(var(--spacing) * 5);  /* 2.5rem */
+  --space-6: calc(var(--spacing) * 6);  /* 3rem */
+  --space-8: calc(var(--spacing) * 8);  /* 4rem */
+  --space-10: calc(var(--spacing) * 10); /* 5rem */
+  --space-12: calc(var(--spacing) * 12); /* 6rem */
+  --space-14: calc(var(--spacing) * 14); /* 7rem */
+
+  /* Accents */
+  --size-accent-line: 4rem;
+  --size-accent-line-thickness: 0.125rem;
+
+  /* Blur */
+  --blur-sm: 6px;
+
+  /* Dividers */
+  --size-divider: 0.25rem;
+  --size-divider-width: 10rem;
+
+  /* Motion */
+  --motion-fast: 0.3s;
+
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing: 0.375rem; /* 6px on mobile */
+  }
+}
+

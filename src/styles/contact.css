@@ -1,0 +1,209 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form label,
+.contact-note,
+.info-item small,
+.info-item a {
+  font-family: var(--font-sans);
+}
+
+.contact {
+  padding-block: var(--space-4);
+  background: var(--color-white);
+}
+
+.contact-container {
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.contact-spacing-top {
+  padding-top: var(--space-10);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.contact-header h2 {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-medium);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.contact-divider {
+  height: var(--size-divider-height);
+  width: var(--size-divider-width);
+  margin-inline: auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-primary-light),
+    transparent
+  );
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.contact-form .form-group {
+  margin-bottom: var(--space-3);
+  width: 100%;
+}
+
+.form-group label{
+  line-height: var(--leading-tight);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--color-primary);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-light)
+}
+
+.form-required-note {
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.form-required-text {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-info);
+  display: flex;
+  align-items: center;
+  gap: var(--space-0-5);
+}
+
+/* Asterisk color */
+.required-asterisk {
+  color: var(--color-warning);
+  font-weight: var(--weight-bold);
+}
+
+
+.submit-button {
+  width: 100%;
+  padding: var(--space-2);
+  font-size: var(--text-base);
+  background: var(--color-primary-light);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--motion-fast) ease;
+}
+
+.submit-button:hover {
+  background: var(--color-primary-lighter);
+  color: var(--color-primary);
+}
+
+.contact-info {
+  padding-inline-start: var(--space-6);
+  border-inline-start: 1px solid var(--color-border-light);
+}
+
+.contact-info h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.info-item {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.info-icon-wrapper {
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
+  background: var(--color-bg-light-soft);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-light);
+  flex-shrink: 0;
+}
+
+.info-icon {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+  flex-shrink: 0;
+  color: currentColor;
+  stroke-width: 1.75;
+  transition: color var(--motion-fast) ease;
+}
+
+.info-text {
+  line-height: var(--leading-info);
+}
+
+.info-item small {
+  display: block;
+  color: var(--color-muted);
+  margin-bottom: var(--space-0-5);
+}
+
+.info-item a {
+  color: var(--color-primary);
+}
+
+.info-item a:hover {
+  color: var(--color-primary-light);
+}
+
+.contact-note {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border-light);
+  line-height: var(--leading-base);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    padding-left: 0;
+    border-left: none;
+  }
+}

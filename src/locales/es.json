@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "contact": "Contacto"
+  },
+
+  "header": {
+    "jobDescription": "Abogado Financiero, Bancario y Bursátil"
+  },
+
+  "hero": {
+    "title": "Asesoría Legal Especializada en Derecho Bursátil y Financiero",
+    "subtitle": "Protección jurídica, cumplimiento normativo y estrategias legales para instituciones financieras, fintechs y empresas.",
+    "schedule": "Contactar",
+    "download": "Descargar CV",
+    "whatsappMessage": "Hola, me gustaría recibir asesoría legal."
+  },
+
+  "intro": {
+    "text": "Más de 10 años de asesoría legal en entornos regulatorios complejos."
+  },
+
+  "credentials": {
+    "certification": {
+      "title": "Certificación Oficial",
+      "description": "Oficial de Cumplimiento en Prevención de Lavado de Dinero y Financiamiento al Terrorismo ante la CNBV (2023)."
+    },
+    "english": {
+      "title": "Inglés Fluido",
+      "description": "Experiencia brindando servicios legales bilingües a empresas extranjeras con actividad en México."
+    }
+  },
+
+  "practice": {
+    "title": "Áreas de Práctica",
+
+    "area1": {
+      "title": "Derecho Bursátil y Financiero",
+      "items": [
+        "Estructuración de operaciones e instrumentos financieros.",
+        "Revisión y negociación de contratos.",
+        "Estrategias de operación y cumplimiento normativo ante CNBV y Banxico.",
+        "Marco contractual para fondos, private equity, acuerdos de confidencialidad (NDAs) y trade agreements."
+      ]
+    },
+
+    "area2": {
+      "title": "Regulación Financiera y Compliance",
+      "items": [
+        "Implementación de sistemas AML/CFT.",
+        "Desarrollo de matrices y modelos de riesgo.",
+        "Auditorías normativas para entidades financieras.",
+        "Coordinación de auditorías internas y externas."
+      ]
+    },
+
+    "area3": {
+      "title": "Consultoría Legal para Fintechs",
+      "items": [
+        "Estrategias legales para productos financieros innovadores.",
+        "Acompañamiento en fusiones y adquisiciones (M&A).",
+        "Estructuración corporativa y fiscal.",
+        "Privacidad de datos, protección de información y documentación migratoria."
+      ]
+    },
+
+    "area4": {
+      "title": "Litigio Administrativo, Fiscal y Corporativo",
+      "items": [
+        "Defensa ante autoridades administrativas.",
+        "Elaboración de escritos, recursos y seguimiento de expedientes.",
+        "Asistencia en procedimientos fiscales y corporativos."
+      ]
+    }
+  },
+
+  "contact": {
+    "title": "Contacto",
+
+    "form": {
+      "required": "Todos los campos son obligatorios",
+
+      "nameID": "nombre",
+      "name": "Nombre completo",
+
+      "emailID": "correo",
+      "email": "Correo electrónico",
+
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando...",
+
+      "error": {
+        "title": "No se pudo enviar el mensaje",
+        "missingFields": "Por favor complete todos los campos e intente nuevamente.",
+        "invalidEmail": "La dirección de correo electrónico proporcionada no es válida.",
+        "defaultError": "Ocurrió un error al enviar su mensaje. Por favor, inténtelo más tarde o haga clic en el correo electrónico bajo Información de contacto."
+      },
+
+      "success": {
+        "title": "Mensaje enviado",
+        "message": "Gracias por su mensaje. Me pondré en contacto con usted a la brevedad posible."
+      }
+    },
+
+    "info": {
+      "title": "Información de contacto",
+      "email": "Email",
+      "phone": "Teléfono",
+      "availability": "Estoy disponible para consultas y reuniones. No dude en contactarme para discutir sus necesidades legales en materia financiera y bursátil."
+    }
+  },
+
+  "footer": {
+    "title": "Contacto",
+    "rights": "Todos los derechos reservados."
+  }
+}
