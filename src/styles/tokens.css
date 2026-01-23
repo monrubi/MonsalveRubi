@@ -34,6 +34,7 @@
   --space-8: calc(var(--spacing) * 8);  /* 4rem */
   --space-10: calc(var(--spacing) * 10); /* 5rem */
   --space-12: calc(var(--spacing) * 12); /* 6rem */
+  --space-14: calc(var(--spacing) * 14); /* 7rem */
 
   /* Accents */
   --size-accent-line: 4rem;

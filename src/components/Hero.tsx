@@ -19,7 +19,7 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-bg">
         <img
-          src="https://images.unsplash.com/photo-1643543142359-9ef2d4795351"
+          src="/images/banco_de_mexico.jpg"
           alt="Banco de México"
           className="hero-bg-image"
         />
