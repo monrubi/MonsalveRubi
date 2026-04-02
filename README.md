@@ -1,4 +1,4 @@
-# Legal Consulting Website - Portfolio Project
+# Legal Consulting Website
 
 A modern, professional website for a legal consulting practice specializing in securities, financial law, and regulatory compliance. This project demonstrates full-stack web development skills with a focus on clean code, performance, and user experience.
 
